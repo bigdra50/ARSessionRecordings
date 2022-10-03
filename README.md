@@ -9,7 +9,7 @@ uGUI for ARCore Recording and Playback.
 ## Requirement
 | Name | Version | URL |
 | :--: | :-----: | :-: |
-| ARCoreExtensions | 1.33.0 | https://github.com/google-ar/arcore-unity-extensions |
+| ARFoundation | 4.2.6 | https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@4.2/manual/index.html |
 
 
 ## Screenshots
