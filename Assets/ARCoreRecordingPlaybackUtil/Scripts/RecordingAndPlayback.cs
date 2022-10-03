@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.ARCore;
@@ -11,8 +10,6 @@ namespace ARCoreRecordingPlaybackUtil.Scripts
 {
     public class RecordingAndPlayback : MonoBehaviour
     {
-        [SerializeField] private ARSession _arSession;
-
         [SerializeField] private Button _playButton;
         [SerializeField] private Button _stopButton;
         [SerializeField] private Button _recordButton;
@@ -21,10 +18,12 @@ namespace ARCoreRecordingPlaybackUtil.Scripts
         [SerializeField] private RecordCell _recordCellPrefab;
         [SerializeField] private Transform _cellsRoot;
 
+        private ARSession _arSession;
         private List<RecordCell> _recordCells = new();
 
         private void Start()
         {
+            _arSession = FindObjectOfType<ARSession>();
             _playButton.onClick.AddListener(() =>
             {
                 _panel.SetActive(!_panel.activeSelf);
@@ -47,7 +46,6 @@ namespace ARCoreRecordingPlaybackUtil.Scripts
             var filePaths = Directory.GetFiles(Application.persistentDataPath, "*.mp4", SearchOption.TopDirectoryOnly);
             foreach (var filePath in filePaths)
             {
-                Debug.Log(filePath);
                 var cell = Instantiate(_recordCellPrefab, _cellsRoot);
                 cell.Init(filePath);
                 cell.CellButton.onClick.AddListener(() => StartPlayback(filePath));
