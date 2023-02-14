@@ -5,8 +5,14 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: Assets/ARCoreRecordingPlaybackUtil/Scenes/Geospatial/GeospatialExample.unity
+    guid: c88ffcc7c55f3504fb56fd6d1d483c91
   - enabled: 1
-    path: Assets/Samples/ARCore Extensions/1.33.0/Geospatial Sample/Scenes/Geospatial.unity
+    path: Assets/Samples/ARCore Extensions/1.35.0/Geospatial Sample/Scenes/Geospatial.unity
     guid: 1ed15e9657253406185e4b2c7c5a4fc4
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 744b813df90924c169af73489b8325de,

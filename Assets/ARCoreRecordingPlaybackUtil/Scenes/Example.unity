@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
+  m_IndirectSpecularColor: {r: 0.4439403, g: 0.4931519, b: 0.5722083, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -655,10 +655,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 5892634812947135206, guid: 64f3c44e7b8f4384fb175df54811d8ed,
-        type: 3}
-      propertyPath: _arSession
-      value: 
-      objectReference: {fileID: 656880747}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64f3c44e7b8f4384fb175df54811d8ed, type: 3}
