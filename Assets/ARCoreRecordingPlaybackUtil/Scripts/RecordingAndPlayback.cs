@@ -10,13 +10,30 @@ namespace ARCoreRecordingPlaybackUtil.Scripts
 {
     public class RecordingAndPlayback : MonoBehaviour
     {
-        [SerializeField] private Button _playButton;
-        [SerializeField] private Button _stopButton;
-        [SerializeField] private Button _recordButton;
+        [SerializeField]
+        private Button _playButton;
 
-        [SerializeField] private GameObject _panel;
-        [SerializeField] private RecordCell _recordCellPrefab;
-        [SerializeField] private Transform _cellsRoot;
+        [SerializeField]
+        private Button _stopButton;
+
+        [SerializeField]
+        private Button _recordButton;
+
+        [SerializeField]
+        private GameObject _panel;
+
+        [SerializeField]
+        private RecordCell _recordCellPrefab;
+
+        [SerializeField]
+        private Transform _cellsRoot;
+
+        [SerializeField]
+        private Button _decideEditButton;
+
+        [SerializeField]
+        private Button _cancelEditButton;
+
 
         private ARSession _arSession;
         private List<RecordCell> _recordCells = new();
@@ -47,8 +64,14 @@ namespace ARCoreRecordingPlaybackUtil.Scripts
             foreach (var filePath in filePaths)
             {
                 var cell = Instantiate(_recordCellPrefab, _cellsRoot);
-                cell.Init(filePath);
+                cell.Init(filePath, _decideEditButton, _cancelEditButton);
                 cell.CellButton.onClick.AddListener(() => StartPlayback(filePath));
+                cell.GetComponent<LongPressEventTrigger>().OnLongPressed.AddListener(() =>
+                {
+                    // Edit Modeのセルはキャンセルさせる
+                    _recordCells.ForEach(x => x.CancelFileEdit());
+                    cell.EditFileName();
+                });
                 _recordCells.Add(cell);
             }
         }
